@@ -1,13 +1,13 @@
 const items = require("../Items")
-
+const {getItem,getItems} = require('../controllers/items-controller') 
 //Item schema
 
 const Item = {
     type:'object',
-                    properties:{
-                        id:{type:'string'},
-                        name:{type:'string'},
-                    }
+        properties:{
+         id:{type:'string'},
+         name:{type:'string'},
+  }
 }
 
 
@@ -21,7 +21,8 @@ const getItemsOpts = {
                 items:{Item}
             }
         }
-    }
+    },
+    handler:getItems
 }
 
 
@@ -31,26 +32,16 @@ schema : {
         200:Item
 
     }
-}
+},handler:getItem
 }
 
 // get all the items 
 function itemRoutes(fastify,options,done){
-    fastify.get('/items',getItemsOpts,(req,reply)=>{
-
-   
-        reply.send(items)
-    })
+    fastify.get('/items',getItemsOpts)
    
 // get the signle item    
 
-    fastify.get('/items/:id',getItemOpts,(req,reply)=>{
-    
-        const {id} = req.params
-        const item = items.find((item) => item.id === id
-        )
-        reply.send(item)
-    })
+    fastify.get('/items/:id',getItemOpts)
     done()
 }
 
