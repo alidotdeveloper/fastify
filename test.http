@@ -16,3 +16,10 @@ Content-Type: application/json
 {
   "name": "New Item"
 }
+
+
+### Delete ITEM
+
+DELETE http://localhost:5000/items/3
+
+
