@@ -1,8 +1,18 @@
 ### GET ALL ITEMS
 
-GET http://localhost:5000/items HTTP/1.1
+GET http://localhost:5000/items
+Content-Type: application/json
 
+### GET Single ITEM
 
-### GET Single ITEMS
+GET http://localhost:5000/items/1
+Content-Type: application/json
 
-GET http://localhost:5000/items/1 HTTP/1.1
+### ADD ITEM
+
+POST http://localhost:5000/items
+Content-Type: application/json
+
+{
+  "name": "New Item"
+}
