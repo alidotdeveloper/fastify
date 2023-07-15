@@ -23,3 +23,12 @@ Content-Type: application/json
 DELETE http://localhost:5000/items/3
 
 
+### UPDATE ITEM
+
+PUT http://localhost:5000/items/1 
+Content-Type: application/json
+
+{
+  "name": "Updated Item"
+}
+
